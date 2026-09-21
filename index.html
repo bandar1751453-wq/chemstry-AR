@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>الوحدة المطورة: الروابط الأيونية والمركبات الأيونية</title>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"></script>
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--ink:#172033;--muted:#657089;--primary:#1f5eff;--ok:#159957;--warn:#c87900;--bad:#c62828}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif;color:var(--ink);line-height:1.8}
+header{background:linear-gradient(135deg,#173b8f,#1f5eff);color:white;padding:34px 18px;text-align:center}
+header h1{margin:0 0 8px;font-size:28px} header p{margin:0;opacity:.92}
+.container{max-width:1050px;margin:auto;padding:18px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px}
+.card{background:var(--card);border-radius:18px;padding:18px;box-shadow:0 7px 25px #10204012;border:1px solid #e8ecf4}
+.card h2,.card h3{margin-top:0}.btn{display:inline-block;border:0;border-radius:12px;padding:11px 16px;background:var(--primary);color:white;font-weight:700;cursor:pointer;margin:4px;text-decoration:none}.btn.secondary{background:#eef2ff;color:#2348a5}.btn.ok{background:var(--ok)}.btn.warn{background:#fff1d9;color:#805000}
+.hidden{display:none}.pill{display:inline-block;padding:4px 10px;border-radius:20px;background:#eef2ff;color:#2445a0;font-size:13px;margin:2px}
+.progress{height:10px;background:#e8edf7;border-radius:99px;overflow:hidden}.progress>div{height:100%;background:var(--primary);width:0}
+input,textarea,select{width:100%;padding:11px;border:1px solid #d8deea;border-radius:10px;font:inherit;margin:6px 0 12px}
+.option{border:1px solid #dce2ed;padding:12px;border-radius:12px;margin:8px 0;cursor:pointer}.option:hover{background:#f5f8ff}
+.feedback{padding:12px;border-radius:12px;margin-top:10px}.good{background:#e8f7ef;color:#12653d}.bad{background:#fff0f0;color:#9b2222}
+model-viewer{width:100%;height:330px;background:linear-gradient(180deg,#f5f8ff,#fff);border-radius:16px}
+.small{color:var(--muted);font-size:14px}.center{text-align:center}.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}.charge{font-size:30px;font-weight:800;text-align:center;padding:16px;border-radius:14px;background:#f3f6fb}
+footer{text-align:center;color:var(--muted);padding:30px}
+@media(max-width:700px){.two{grid-template-columns:1fr}header h1{font-size:22px}}
+</style>
+</head>
+<body>
+<header>
+<h1>الوحدة المطوّرة بالواقع المعزّز</h1>
+<p>الروابط الأيونية والمركبات الأيونية — لتنمية مهارات حل المشكلات العلمية</p>
+</header>
+<div class="container">
+<div class="card">
+  <h2>طريقة التطبيق</h2>
+  <p>افتح الوحدة من هاتف/جهاز لوحي. في كل مهمة: حدّد المشكلة → اجمع الأدلة → ضع فرضية → اختبرها → حلّل النتيجة → قرّر الحل.</p>
+  <div class="progress"><div id="bar"></div></div>
+  <p id="status" class="small">ابدأ بالمهمة الأولى.</p>
+</div>
+
+<section id="home">
+<div class="grid">
+<div class="card"><span class="pill">المهمة 1</span><h2>تكوّن الأيونات</h2><p>ماذا يحدث للإلكترون عندما تتكوّن أيونات الصوديوم والكلور؟</p><button class="btn" onclick="go('m1')">ابدأ</button></div>
+<div class="card"><span class="pill">المهمة 2</span><h2>بناء مركب متعادل</h2><p>كيف تختار عدد الأيونات حتى تصبح الشحنة الكلية صفراً؟</p><button class="btn" onclick="go('m2')">ابدأ</button></div>
+<div class="card"><span class="pill">المهمة 3</span><h2>التوصيل الكهربائي</h2><p>لماذا يوصل محلول NaCl الكهرباء بينما لا يوصل السكر بالطريقة نفسها؟</p><button class="btn" onclick="go('m3')">ابدأ</button></div>
+<div class="card"><span class="pill">المهمة 4</span><h2>اكتشاف الصيغة</h2><p>كوّن صيغة مركب متعادل من Al³⁺ و O²⁻.</p><button class="btn" onclick="go('m4')">ابدأ</button></div>
+<div class="card"><span class="pill">المهمة 5</span><h2>الشبكة والخواص</h2><p>اربط ترتيب الأيونات في الشبكة بالخواص الفيزيائية للمركب.</p><button class="btn" onclick="go('m5')">ابدأ</button></div>
+<div class="card"><span class="pill">التقويم</span><h2>التحدي الختامي</h2><p>اختبر قدرتك على حل مشكلات جديدة في المركبات الأيونية.</p><button class="btn" onclick="go('final')">ابدأ</button></div>
+</div>
+</section>
+
+<section id="m1" class="hidden">
+<div class="card"><h2>المهمة 1: مهمة إنقاذ الذرات</h2>
+<p><b>المشكلة:</b> ذرة الصوديوم وذرة الكلور ليستا أيونين. ماذا يجب أن يحدث للإلكترون الخارجي حتى تتكوّن Na⁺ وCl⁻؟</p>
+<div class="two">
+<div><h3>الصوديوم Na⁺</h3><model-viewer src="models/Na_plus.glb" ar ar-modes="scene-viewer webxr quick-look" camera-controls auto-rotate alt="نموذج ثلاثي الأبعاد لأيون الصوديوم"></model-viewer></div>
+<div><h3>الكلور Cl⁻</h3><model-viewer src="models/Cl_minus.glb" ar ar-modes="scene-viewer webxr quick-look" camera-controls auto-rotate alt="نموذج ثلاثي الأبعاد لأيون الكلوريد"></model-viewer></div>
+</div>
+<h3>1) ضع فرضيتك</h3>
+<select id="m1hyp"><option value="">اختر...</option><option>الصوديوم يفقد إلكتروناً والكلور يكتسب إلكتروناً</option><option>الصوديوم يكتسب إلكتروناً والكلور يفقد إلكتروناً</option><option>لا يحدث انتقال للإلكترونات</option></select>
+<h3>2) دليل من النموذج</h3><textarea id="m1ev" placeholder="اكتب ما لاحظته..."></textarea>
+<button class="btn ok" onclick="checkM1()">اختبر الفرضية</button><div id="m1fb"></div>
+<button class="btn secondary" onclick="go('m2')">التالي</button></div>
+</section>
+
+<section id="m2" class="hidden">
+<div class="card"><h2>المهمة 2: أنقذ المركب المتعادل</h2>
+<p><b>المشكلة:</b> اختر الأيونات والأعداد المناسبة بحيث تكون الشحنة الكلية للمركب صفراً.</p>
+<div class="grid">
+<div class="card"><h3>أيون موجب</h3><select id="cat"><option value="1">Na⁺</option><option value="2">Mg²⁺</option><option value="3">Al³⁺</option></select></div>
+<div class="card"><h3>أيون سالب</h3><select id="an"><option value="-1">Cl⁻</option><option value="-2">O²⁻</option><option value="-3">PO₄³⁻</option></select></div>
+</div>
+<div class="two"><div><label>عدد الموجب</label><input id="nc" type="number" min="1" max="9" value="1"></div><div><label>عدد السالب</label><input id="na" type="number" min="1" max="9" value="1"></div></div>
+<div class="charge" id="net">الشحنة الكلية: 0</div>
+<button class="btn" onclick="calcNet()">احسب الشحنة</button>
+<button class="btn ok" onclick="checkNet()">تحقق من الحل</button><div id="m2fb"></div>
+<button class="btn secondary" onclick="go('m3')">التالي</button></div>
+</section>
+
+<section id="m3" class="hidden">
+<div class="card"><h2>المهمة 3: مشكلة التوصيل الكهربائي</h2>
+<p><b>الموقف:</b> أمامك أربع مواد. توقّع أيها يوصل الكهرباء في صورته المعروضة، ثم فسّر النتيجة.</p>
+<div class="grid">
+<div class="option" onclick="selectM3('solid')"><b>NaCl صلب</b><br>الأيونات ثابتة في الشبكة.</div>
+<div class="option" onclick="selectM3('solution')"><b>NaCl مذاب في الماء</b><br>الأيونات قادرة على الحركة.</div>
+<div class="option" onclick="selectM3('sugar')"><b>السكروز مذاب</b><br>جزيئات متعادلة في المحلول.</div>
+<div class="option" onclick="selectM3('water')"><b>ماء نقي</b><br>لا توجد كمية كبيرة من الأيونات المتحركة.</div>
+</div>
+<p id="m3choice" class="feedback"></p>
+<textarea id="m3why" placeholder="فسّر: ما علاقة وجود الأيونات الحرة المتحركة بالتوصيل؟"></textarea>
+<button class="btn ok" onclick="checkM3()">تحقق</button><div id="m3fb"></div>
+<button class="btn secondary" onclick="go('m4')">التالي</button></div>
+</section>
+
+<section id="m4" class="hidden">
+<div class="card"><h2>المهمة 4: مختبر اكتشاف الصيغة</h2>
+<p><b>المشكلة:</b> لديك Al³⁺ وO²⁻. لا تقبل أي صيغة إلا إذا كانت الشحنة الكلية صفراً.</p>
+<div class="two">
+<div><model-viewer src="models/Al_plus3.glb" ar ar-modes="scene-viewer webxr quick-look" camera-controls auto-rotate alt="أيون الألومنيوم"></model-viewer><div class="charge">Al³⁺</div></div>
+<div><model-viewer src="models/O_minus2.glb" ar ar-modes="scene-viewer webxr quick-look" camera-controls auto-rotate alt="أيون الأكسيد"></model-viewer><div class="charge">O²⁻</div></div>
+</div>
+<p>جرّب الأعداد حتى تصل إلى التعادل.</p>
+<div class="two"><div><label>عدد Al³⁺</label><input id="aln" type="number" min="1" max="6" value="1"></div><div><label>عدد O²⁻</label><input id="on" type="number" min="1" max="6" value="1"></div></div>
+<div class="charge" id="alnet">الشحنة: +1</div>
+<button class="btn" onclick="calcAl()">اختبر</button>
+<button class="btn ok" onclick="checkAl()">اعتمد الصيغة</button><div id="m4fb"></div>
+<button class="btn secondary" onclick="go('m5')">التالي</button></div>
+</section>
+
+<section id="m5" class="hidden">
+<div class="card"><h2>المهمة 5: الشبكة الأيونية والخواص</h2>
+<p><b>المشكلة:</b> لماذا تكون كثير من المركبات الأيونية صلبة وذات درجات انصهار مرتفعة؟ استخدم نموذج الشبكة ثلاثي الأبعاد ثم قدّم تفسيراً.</p>
+<model-viewer src="models/NaCl_lattice.glb" ar ar-modes="scene-viewer webxr quick-look" camera-controls auto-rotate alt="شبكة بلورية مبسطة لكلوريد الصوديوم"></model-viewer>
+<div class="option" onclick="answerM5(1)">أ. لأن الأيونات مرتبة في شبكة وتوجد تجاذبات كهربائية قوية بين الشحنات المتعاكسة.</div>
+<div class="option" onclick="answerM5(2)">ب. لأن المركب يتكون من جزيئات متعادلة ضعيفة التجاذب فقط.</div>
+<div class="option" onclick="answerM5(3)">ج. لأن الأيونات لا تتفاعل مع بعضها.</div>
+<div id="m5fb"></div>
+<button class="btn secondary" onclick="go('final')">التقويم الختامي</button></div>
+</section>
+
+<section id="final" class="hidden">
+<div class="card"><h2>التحدي الختامي</h2><p>أجب عن الأسئلة التالية. الهدف ليس الحفظ، بل استخدام الأدلة للوصول إلى حل.</p>
+<div id="quiz"></div>
+<button class="btn ok" onclick="finishQuiz()">إظهار النتيجة</button>
+<div id="quizfb"></div>
+<hr>
+<h3>سجل حل المشكلة العلمية</h3>
+<textarea id="record" rows="7" placeholder="المشكلة → المعلومات/الأدلة → الفرضية → الاختبار → تحليل النتائج → الحل → التحقق"></textarea>
+<button class="btn" onclick="saveRecord()">حفظ السجل على الجهاز</button>
+<div id="savefb"></div>
+</div>
+</section>
+</div>
+<footer>نسخة تطبيقية مستقلة — متوافقة مع عرض 3D والواقع المعزز على الأجهزة المدعومة.</footer>
+
+<script>
+const sections=['home','m1','m2','m3','m4','m5','final'];
+let visited=new Set();
+function go(id){
+ sections.forEach(s=>document.getElementById(s).classList.toggle('hidden',s!==id));
+ visited.add(id); document.getElementById('bar').style.width=Math.min(100,Math.round((visited.size/7)*100))+'%';
+ document.getElementById('status').textContent = id==='home'?'ابدأ بالمهمة الأولى.':'أنت الآن في: '+document.getElementById(id).querySelector('h2').textContent;
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function checkM1(){
+ let h=document.getElementById('m1hyp').value, ev=document.getElementById('m1ev').value.trim(), f=document.getElementById('m1fb');
+ if(h.includes('يفقد') && h.includes('يكتسب') && ev.length>=10) f.innerHTML='<div class="feedback good">ممتاز. الفرضية مدعومة: الصوديوم يفقد إلكتروناً فيصبح Na⁺، والكلور يكتسب إلكتروناً فيصبح Cl⁻. اشرح ذلك بالأدلة من النموذج.</div>';
+ else f.innerHTML='<div class="feedback bad">أعد النظر: المطلوب ربط تغير عدد الإلكترونات بتكوّن الشحنة الموجبة أو السالبة، ثم اكتب دليلاً من النموذج.</div>';
+}
+function calcNet(){
+ let c=+document.getElementById('cat').value,a=+document.getElementById('an').value,nc=+document.getElementById('nc').value,na=+document.getElementById('na').value;
+ document.getElementById('net').textContent='الشحنة الكلية: '+(c*nc+a*na);
+}
+function checkNet(){
+ let c=+document.getElementById('cat').value,a=+document.getElementById('an').value,nc=+document.getElementById('nc').value,na=+document.getElementById('na').value;
+ let net=c*nc+a*na;
+ document.getElementById('m2fb').innerHTML=net===0?'<div class="feedback good">حل صحيح: الشحنة الكلية = صفر. لقد اختبرت الحل بدليل كمي.</div>':'<div class="feedback bad">المركب غير متعادل. غيّر عدد الأيونات ثم أعد الاختبار.</div>';
+ document.getElementById('net').textContent='الشحنة الكلية: '+net;
+}
+let m3sel='';
+function selectM3(x){m3sel=x;document.getElementById('m3choice').textContent='اخترت: '+({solid:'NaCl صلب',solution:'NaCl مذاب',sugar:'السكروز مذاب',water:'ماء نقي'}[x]);}
+function checkM3(){
+ let why=document.getElementById('m3why').value.trim(), f=document.getElementById('m3fb');
+ if(m3sel==='solution' && why.length>=15) f.innerHTML='<div class="feedback good">تفسير قوي: في محلول NaCl توجد أيونات متحركة يمكنها نقل الشحنة. واصل المقارنة مع المواد الأخرى.</div>';
+ else f.innerHTML='<div class="feedback bad">ابدأ من الدليل: هل توجد جسيمات مشحونة حرة الحركة في المادة التي اخترتها؟</div>';
+}
+function calcAl(){
+ let a=+document.getElementById('aln').value,o=+document.getElementById('on').value,net=3*a-2*o;
+ document.getElementById('alnet').textContent='الشحنة: '+(net>=0?'+':'')+net;
+}
+function checkAl(){
+ let a=+document.getElementById('aln').value,o=+document.getElementById('on').value,f=document.getElementById('m4fb');
+ if(3*a-2*o===0) f.innerHTML='<div class="feedback good">أحسنت. الصيغة المتعادلة عندما تكون النسبة 2 Al³⁺ إلى 3 O²⁻ هي Al₂O₃.</div>';
+ else f.innerHTML='<div class="feedback bad">ليست متعادلة. استخدم أصغر أعداد صحيحة تجعل مجموع الشحنات صفراً.</div>';
+}
+function answerM5(n){document.getElementById('m5fb').innerHTML=n===1?'<div class="feedback good">صحيح. ترتيب الأيونات في الشبكة والتجاذب بين الشحنات المتعاكسة يساعدان في تفسير صلابة كثير من المركبات الأيونية وارتفاع درجات انصهارها.</div>':'<div class="feedback bad">أعد مشاهدة الشبكة: لاحظ تكرار الأيونات المتعاكسة وترابطها داخل البناء البلوري.</div>'}
+const qs=[
+['أي تغير ينتج Na⁺؟',['اكتساب إلكترون','فقد إلكترون','تكوين جزيء متعادل'],1],
+['ما الشرط الأساسي لصيغة المركب الأيوني؟',['أن تكون الشحنة الكلية صفراً','أن يكون عدد الذرات متساوياً دائماً','أن تحتوي على أيون واحد فقط'],0],
+['أي حالة من NaCl توصل الكهرباء بوضوح أكبر؟',['NaCl الصلب','محلول NaCl المائي','لا توجد حالة توصل'],1],
+['ما الصيغة المتعادلة لـ Al³⁺ وO²⁻؟',['AlO','Al₂O₃','Al₃O₂'],1]
+];
+function renderQuiz(){
+ document.getElementById('quiz').innerHTML=qs.map((q,i)=>'<div class="card"><b>'+((i+1)+') '+q[0])+'</b>'+q[1].map((o,j)=>'<label class="option"><input type="radio" name="q'+i+'" value="'+j+'"> '+o+'</label>').join('')+'</div>').join('');
+}
+function finishQuiz(){
+ let score=0; qs.forEach((q,i)=>{let x=document.querySelector('input[name="q'+i+'"]:checked'); if(x&&+x.value===q[2])score++;});
+ document.getElementById('quizfb').innerHTML='<div class="feedback '+(score>=3?'good':'bad')+'">نتيجتك: '+score+' / '+qs.length+' — '+(score>=3?'مستوى جيد في حل المشكلة. راجع فقط السؤال الذي أخطأت فيه.':'أعد المهام السابقة واستخدم خطوات المشكلة العلمية قبل إعادة الاختبار.')+'</div>';
+}
+function saveRecord(){
+ const t=document.getElementById('record').value.trim(); if(!t)return;
+ localStorage.setItem('ionic_problem_solving_record',t);
+ document.getElementById('savefb').innerHTML='<div class="feedback good">تم حفظ السجل على هذا الجهاز.</div>';
+}
+renderQuiz();
+</script>
+</body>
+</html>
